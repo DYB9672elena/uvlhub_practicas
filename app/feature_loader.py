@@ -30,6 +30,7 @@ from pathlib import Path
 from flask import Blueprint, Flask
 
 _SUBMODULES = ("routes", "models", "hooks", "signals")
+a = 3
 
 
 def register_features(app: Flask, env: str = "dev") -> None:
