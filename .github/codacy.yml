@@ -42,6 +42,10 @@ jobs:
         pip install -r requirements.txt
         pip install -e ./rosemary
 
+    - name: Check new version
+      run: |
+        pip list --outdated
+
     - name: Run tests with coverage
       run: |
         coverage run -m pytest app/features/ --ignore-glob='*selenium*'
@@ -58,3 +62,4 @@ jobs:
       run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
       env:
         CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+
